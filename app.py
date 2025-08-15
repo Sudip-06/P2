@@ -50,7 +50,7 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI(title="TDS Data Analyst Agent")
 
-LLM_TIMEOUT_SECONDS = int(os.getenv("LLM_TIMEOUT_SECONDS", 150))
+LLM_TIMEOUT_SECONDS = int(os.getenv("LLM_TIMEOUT_SECONDS", 170))
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -384,7 +384,7 @@ def plot_to_base64(max_bytes=100000):
 # LLM agent setup
 # -----------------------------
 llm = ChatGoogleGenerativeAI(
-    model=os.getenv("GOOGLE_MODEL", "gemini-2.5-pro"),
+    model=os.getenv("GOOGLE_MODEL", "gemini-2.5-flash"),
     temperature=0,
     google_api_key=os.getenv("GOOGLE_API_KEY")
 )
